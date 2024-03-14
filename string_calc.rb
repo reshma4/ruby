@@ -1,11 +1,16 @@
 def add(str)
+    l=str.length
     if str.empty?  
         return 0
     else
+        if str.start_with? ("//")
+            delimiter=str[2]
+            str=str[4..l-1]
+            p str
+            str.gsub!(delimiter,",")
+        end 
         str.gsub!("\n",",")
-        p str
         arr=str.split(",")
-        p arr
         flag=false
         n_num=[]
         for i in 0..arr.length-1  
@@ -26,4 +31,9 @@ def add(str)
         end
     end 
 end
-p add("1,-4,-5")
+p add("//;\n1;2;5")
+p add("")
+p add("4")
+p add("8,9")
+p add("1\n2,3")
+p add("1\n2,-3")
