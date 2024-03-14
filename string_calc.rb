@@ -6,7 +6,6 @@ def add(str)
         if str.start_with? ("//")
             delimiter=str[2]
             str=str[4..l-1]
-            p str
             str.gsub!(delimiter,",")
         end 
         str.gsub!("\n",",")
